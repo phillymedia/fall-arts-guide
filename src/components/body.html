@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="http://media.philly.com/storage/inquirer/script/custom-bootstrap-styles/css/bootstrap.css">
+<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+
+<div class="top">
+    <div class="topImage">
+        <img class="mobileImage" src="http://media.philly.com/storage/inquirer/special%20project%20media/summerguide2018-mobile.jpg" alt="">
+        <img class="desktopImage" src="http://media.philly.com/storage/inquirer/special%20project%20media/summerguide2018-2.jpg">
+
+    </div>
+
+    <div class="topText">
+        <h1>Fall Arts Guide 2018&nbsp;</h1>
+
+        <div class="container" alignment="true">
+            <div class="row" alignment="true">
+                <div class="col-md-8 col col-md-offset-2" alignment="true">
+                    <p>Philly's summer entertainment season has it all: Blow-out concerts, blockbuster movies, hot plays, sizzling beach reads, and festivals galore. Our critics pick the best.</p>
+
+                    {# <h5>Edited by Becky Batcha</h5> #}
+                    <div class="dateline" alignment="true">Wednesday, September 12, 2018</div>
+
+                    {% include "./partials/socialshare.html" ignore missing %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container bodyContainer" alignment="true">
+    <div class="row" alignment="true">
+        <div class="col-md-8 col col-md-offset-2" alignment="true">
+
+            <script alignment="true" type="text/javascript" src="http://media.philly.com/storage/inquirer/script/pym.js"></script>
+
+            <div id="grid">
+                {% for item in data %}
+
+                    {% if loop.index == "4" %}
+                        <div class='cell adCell'>
+                            <div class='inner'>
+                                <div class="adUnitLabel">
+                                    Advertisement
+                                </div>
+                                {% set ad = [21] %}{% include "./partials/ad.html" ignore missing %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class='cell'>
+                        <div class='inner'>
+                            <a href='{{item.storyurl}}'>
+                                <div class='category_display'>{{item.category}}</div>
+                                <img class='image' src='{{item.imageurl}}'>
+                                <div class='title'>{{item.title | replace("'s","&rsquo;s") |replace("' ","&rsquo; ")|replace(" '"," &lsquo;")| safe}}</div>
+                                <div class='chatter'>{{item.chatter | replace(' "', ' &ldquo;')| replace('" ', '&rdquo; ') | replace("'s", '&rsquo;s')|replace("--", "–")| safe}}</div>
+                            </a>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+            <div class="source">Top image clockwise from top left: Art Splash at the Philadelphia Museum of Art (Courtesy of the Philadelphia Museum of Art); the Annual Philadelphia Caribbean Festival (MICHAEL BRYANT / Staff Photographer); Taylor Swift (RICK
+                SCUTER / Associated Press); “Aladdin,” at the Academy of Music (DEEN VAN MEER)
+            </div>
+        </div>
+    </div>
+</div>
