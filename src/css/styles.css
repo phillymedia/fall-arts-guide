@@ -70,9 +70,12 @@ $colorTheme: #BC322C;
     }
 }
 
+
+
+
 #grid {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     @include mobile {
         margin-top: 0;
@@ -250,6 +253,8 @@ $colorTheme: #BC322C;
 
 .desktopImage {
     display: block;
+    margin: 30px auto;
+    max-width: 800px;
     @include tablet {
         display: none;
     };
